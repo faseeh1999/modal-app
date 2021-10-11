@@ -1,6 +1,5 @@
+import 'package:adil_app/dialog.dart';
 import 'package:flutter/material.dart';
-
-import 'modal.dart';
 
 class ItemList extends StatelessWidget {
   const ItemList({Key key, this.title}) : super(key: key);
@@ -18,9 +17,16 @@ class ItemList extends StatelessWidget {
       body: Center(
         child: TextButton(
             onPressed: () {
-              bottomMethod(context, w);
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return CustomDialogBox(
+                      title: "Smart Dialog",
+                      description: "This is the alert dialog.",
+                    );
+                  });
             },
-            child: Text("Open Item List")),
+            child: Text("Open DialogBox")),
       ),
     );
   }
